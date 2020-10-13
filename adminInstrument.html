@@ -1,0 +1,254 @@
+<link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+
+<!DOCTYPE html><html class=''>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Admin Panel</title>
+
+    
+    <link rel="stylesheet" href="css/admin.css" type="text/css">
+    <script src='//production-assets.codepen.io/assets/editor/live/console_runner-079c09a0e3b9ff743e39ee2d5637b9216b3545af0de366d4b9aad9dc87e26bfd.js'></script><script src='//production-assets.codepen.io/assets/editor/live/events_runner-73716630c22bbc8cff4bd0f07b135f00a0bdc5d14629260c3ec49e5606f98fdd.js'></script><script src='//production-assets.codepen.io/assets/editor/live/css_live_reload_init-2c0dc5167d60a5af3ee189d570b1835129687ea2a61bee3513dee3a50c115a77.js'></script><meta charset='UTF-8'><meta name="robots" content="noindex"><link rel="shortcut icon" type="image/x-icon" href="//production-assets.codepen.io/assets/favicon/favicon-8ea04875e70c4b0bb41da869e81236e54394d63638a1ef12fa558a4a835f1164.ico" /><link rel="mask-icon" type="" href="//production-assets.codepen.io/assets/favicon/logo-pin-f2d2b6d2c61838f7e76325261b7195c27224080bc099486ddd6dccb469b8e8e6.svg" color="#111" /><link rel="canonical" href="https://codepen.io/jaca90/pen/vZJZMx?depth=everything&order=popularity&page=10&q=statistics&show_forks=false" />
+
+<link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css'><link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css'><link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css'>
+<style class="cp-pen-styles">@import url("https://fonts.googleapis.com/css?family=Open+Sans:300,400,400i,600,700&subset=latin-ext");
+
+</style></head>
+<body>
+
+<body class="sidebar-is-reduced">
+  <header class="l-header">
+    <div class="l-header__inner clearfix">
+      <div class="c-header-icon js-hamburger">
+        <div class="hamburger-toggle"><span class="bar-top"></span><span class="bar-mid"></span><span class="bar-bot"></span></div>
+      </div>
+      <div class="c-search">
+        <input class="c-search__input u-input" placeholder="Search..." type="text"/>
+      </div>
+      <div class="header-icons-group">
+        <div class="c-header-icon logout"><a href="login.html"><i class="fa fa-power-off"></a></i></div>
+      </div>
+    </div>
+  </header>
+  <div class="l-sidebar">
+    <div class="logo">
+      <div class="logo__txt">OF</div>
+    </div>
+    <div class="l-sidebar__content">
+      <nav class="c-menu js-menu">
+        <ul class="u-list">
+          <li class="c-menu__item is-active" data-toggle="tooltip" title="Flights">
+            <div class="c-menu__item__inner"><i class="fa fa-tachometer"></i>
+              <div class="c-menu-item__title"><a href="adminPanel.html"><span>Dashboard</span></a></div>
+            </div>
+          </li>
+          <li class="c-menu__item has-submenu" data-toggle="tooltip" title="Modules">
+            <div class="c-menu__item__inner"><i class="fa fa-list-ul"></i>
+              <div class="c-menu-item__title"><a href="adminCategory.html"><span>Category</span></a></div>
+            </div>
+           
+          </li>
+          <li class="c-menu__item has-submenu" data-toggle="tooltip" title="Statistics">
+            <div class="c-menu__item__inner"><i class="fa fa-music"></i>
+              <div class="c-menu-item__title"><a href="adminInstrument.html"><span>Food</span></a></div>
+            </div>
+          </li>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+  <div class="modal fade" id="addClassModal">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header bg-success text-white">
+          <h5 class="modal-title">Edit Category</h5>
+          <button class="close" data-dismiss="modal"><span>&times;</span></button>
+        </div>
+        <div class="modal-body">
+          <fieldset>
+            <div class="form-group">
+              <label for="title">Food Name</label>
+              <input id="instrumentName" type="text" required pattern="[0-9A-Z]" class="form-control validate-input"
+                data-validate="Please insert number only" placeholder="Edit College Name">
+            </div>
+            <div class="form-group">
+              <label for="title">Food Description</label>
+              <input id="instrumentDescription" type="text" required pattern="[0-9A-Z]" class="form-control validate-input"
+                data-validate="Please insert number only" placeholder="Edit College Name">
+            </div>
+            <div class="form-group">
+              <label for="title">Food Price</label>
+              <input id="instrumentPrice" type="text" required pattern="[0-9A-Z]" class="form-control validate-input"
+                data-validate="Please insert number only" placeholder="Edit College Name">
+            </div>
+            <div class="form-group">
+              <label for="title">Choose Photo</label>
+              <input type="file" accept="image/*" id="file-input">
+            </div>
+            <div class="modal-footer">
+              <button id="editCategory" name="submit" type="submit" class="btn btn-success">Edit</button>
+              <button class="btn btn-secondary" id="close" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+
+<main class="l-main">
+        
+<div class="col-sm-11">
+    <div class="card mb-5">
+<div class="card-header">
+<h3 class="float-left">Food Info</h3>
+</div>
+<a href="addInstrument.html" class="float-left btn btn-outline-secondary"><h4>Add Food</h4></a></br>
+
+<div class="card-body">
+<div class="table-responsive">
+<table class="table table-hover mt-5">
+<thead>
+<tr>
+<th scope="col">#</th>
+<th scope="col">Food name</th>
+<th scope="col">Food Description</th>
+<th scope="col">Price</th>
+<th scope="col">Image</th>
+<th scope="col">Edit</th>
+<th scope="col">Delete</th>
+
+</tr>
+</thead>
+<tbody id="tblAdminInstrument">
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+  
+</div>
+</main>  <!--/tab-pane-->
+             </div><!--/tab-content-->
+
+        </div><!--/col-9-->
+    <!--/col-3-->
+      </div>
+    <!--/row-->
+    <!-- BATCH MODAL -->
+  <div class="modal fade" id="addClassModal">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header bg-success text-white">
+          <h5 class="modal-title">Edit Food</h5>
+          <button class="close" data-dismiss="modal"><span>&times;</span></button>
+        </div>
+        <div class="modal-body">
+          <fieldset>
+            <div class="form-group">
+              <label for="title"> Food Name</label>
+              <input id="add_batch_name" type="text" required pattern="[0-9A-Z]" class="form-control validate-input" data-validate="Please insert number only" placeholder="Edit College Name">
+            </div>
+            <div class="form-group">
+              <label for="title">Food Description</label>
+              <input id="add_batch_name" type="text" required pattern="[0-9A-Z]" class="form-control validate-input" data-validate="Please insert number only" placeholder="Edit College Description">
+            </div>
+            <div class="form-group">
+              <label for="title">Price</label>
+              <input id="add_batch_name" type="text" required pattern="[0-9A-Z]" class="form-control validate-input" data-validate="Please insert number only" placeholder="Edit Collge Fee">
+            </div>
+            <div class="form-group">
+              <label for="title">Image</label>
+              <input id="add_batch_name" type="text" required pattern="[0-9A-Z]" class="form-control validate-input" data-validate="Please insert number only" placeholder="Change Image">
+            </div>
+            
+            <div class="modal-footer">
+              <button id="edit_batch_name" name="submit" type="submit" class="btn btn-success">Edit</button>
+              <button class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+<script src='//production-assets.codepen.io/assets/common/stopExecutionOnTimeout-b2a7b3fe212eaa732349046d8416e00a9dec26eb7fd347590fbced3ab38af52e.js'></script><script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js'></script><script src='https://use.fontawesome.com/2188c74ac9.js'></script><script src='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js'></script>
+<script >"use strict";
+
+var Dashboard = function () {
+	var global = {
+		tooltipOptions: {
+			placement: "right"
+		},
+		menuClass: ".c-menu"
+	};
+
+	var menuChangeActive = function menuChangeActive(el) {
+		var hasSubmenu = $(el).hasClass("has-submenu");
+		$(global.menuClass + " .is-active").removeClass("is-active");
+		$(el).addClass("is-active");
+
+		// if (hasSubmenu) {
+		// 	$(el).find("ul").slideDown();
+		// }
+	};
+
+	var sidebarChangeWidth = function sidebarChangeWidth() {
+		var $menuItemsTitle = $("li .menu-item__title");
+
+		$("body").toggleClass("sidebar-is-reduced sidebar-is-expanded");
+		$(".hamburger-toggle").toggleClass("is-opened");
+
+		if ($("body").hasClass("sidebar-is-expanded")) {
+			$('[data-toggle="tooltip"]').tooltip("destroy");
+		} else {
+			$('[data-toggle="tooltip"]').tooltip(global.tooltipOptions);
+		}
+	};
+
+	return {
+		init: function init() {
+			$(".js-hamburger").on("click", sidebarChangeWidth);
+
+			$(".js-menu li").on("click", function (e) {
+				menuChangeActive(e.currentTarget);
+			});
+
+			$('[data-toggle="tooltip"]').tooltip(global.tooltipOptions);
+		}
+	};
+}();
+
+Dashboard.init();
+//# sourceURL=pen.js
+</script>
+<script src="js/adminInstrument.js"></script>
+  <script>
+    async function editInstrument(id) {
+      const data = await fetch("http://localhost:3000/instruments/instruments/getInstrumentByID/" + id);
+      const jsonData = await data.json();
+      console.log(jsonData)
+      const instrumentName = document.getElementById("instrumentName")
+      const instrumentDescription = document.getElementById("instrumentDescription")
+      const instrumentPrice = document.getElementById("instrumentPrice")
+      const instrumentEdit = document.getElementById("editCategory")
+      const closebtn = document.getElementById("close")
+      instrumentName.value = jsonData.name
+      instrumentDescription.value = jsonData.description 
+      instrumentPrice.value = jsonData.price
+      closebtn.value = jsonData._id
+    }
+    async function deleteInstrument(id) {
+      const data = await fetch("http://localhost:3000/instruments/instruments/getInstrumentByID/" + id, {
+        method: "DELETE"
+      });
+      const json = await data.json()
+      console.log(json)
+      if(json.deletedCount == 1){
+        alert("Deleted Successfully")
+      }
+    }
+  </script>
+</body></html>

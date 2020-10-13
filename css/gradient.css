@@ -1,0 +1,5 @@
+    body {
+        background: #ff5e63; /* Fallback for browsers that don't support gradients */
+        font-family: "Varela Round", sans-serif;
+		background: linear-gradient(grey, white)  no-repeat;
+    }
